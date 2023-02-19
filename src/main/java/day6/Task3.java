@@ -1,3 +1,4 @@
+/*
 package day6;
 
 public class Task3 {
@@ -7,3 +8,4 @@ public class Task3 {
         teacher.evaluate(student);
     }
 }
+*/

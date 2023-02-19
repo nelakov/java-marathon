@@ -1,3 +1,4 @@
+/*
 package day7;
 
 import java.util.Random;
@@ -80,14 +81,14 @@ public class Player {
     
     public static void main(String[] args) {
         Random random = new Random();
-        Player player1 = new Player(random.nextInt(2,3));
+        Player player1 = new Player(random.nextInt(90,100));
         Player player2 = new Player(random.nextInt(90,100));
         Player player3 = new Player(random.nextInt(90,100));
         Player player4 = new Player(random.nextInt(90,100));
         Player player5 = new Player(random.nextInt(90,100));
         Player player6 = new Player(random.nextInt(90,100));
         Player player7 = new Player(random.nextInt(90,100));
-        Player player8 = new Player(random.nextInt(90,100)); 
+        Player player8 = new Player(random.nextInt(90,100));
         
         for (int i = player1.getStamina(); i == player1.getStamina(); i--) {
             player1.run(player1);
@@ -95,3 +96,4 @@ public class Player {
     }
 
 }
+*/
