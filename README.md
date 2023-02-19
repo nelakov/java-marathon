@@ -9,8 +9,8 @@
 <code>
 <img 
 width="80%" 
-title="Jenkins-params" 
-src="images/jenkins.png">
+title="ChessBoard" 
+src="/files/chessBoard.png">
 alt="Тext"
 caption="Kramnik - Kasparov 2000 year match">
 </code>
