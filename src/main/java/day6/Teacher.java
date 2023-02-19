@@ -1,4 +1,3 @@
-/*
 package day6;
 
 import java.util.Random;
@@ -59,4 +58,3 @@ public class Teacher {
     }
 
 }
-*/
