@@ -1,3 +1,4 @@
+/*
 package day7;
 
 import java.util.Random;
@@ -95,3 +96,4 @@ public class Player {
     }
 
 }
+*/

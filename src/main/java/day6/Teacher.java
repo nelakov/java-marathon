@@ -1,3 +1,4 @@
+/*
 package day6;
 
 import java.util.Random;
@@ -30,29 +31,32 @@ public class Teacher {
     public void evaluate(Student student) {
         Random random = new Random();
         int evaluation = random.nextInt(5);
-        
+
         System.out.println("Teacher " + name + " evaluate student with name " + student.getName() + "\n" + "Subject " + science + "\n" + "Evaluation " + evaluation());
     }
 
     public String evaluation() {
         Random random = new Random();
-        int evaluationInt = random.nextInt(2,5);
+        int evaluationInt = random.nextInt(2, 5);
         String evaluation = null;
-        switch(evaluationInt) {
+        switch (evaluationInt) {
             case 2:
-            evaluation = "BAD";
-            break;
+                evaluation = "BAD";
+                break;
 
             case 3:
-            evaluation = "WITH BEAR GOOD";
+                evaluation = "WITH BEAR GOOD";
+                break;
 
             case 4:
-            evaluation = "GOOD";
-
+                evaluation = "GOOD";
+                break;
             case 5:
-            evaluation = "THE BEST";
+                evaluation = "THE BEST";
+                break;
         }
         return evaluation;
     }
 
 }
+*/

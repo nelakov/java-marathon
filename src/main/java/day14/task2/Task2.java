@@ -16,7 +16,7 @@ public class Task2 {
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
         } catch (IOException e) {
-            System.out.println("Invalid input file");
+            System.out.println(e.getMessage());
         }
 
     }
@@ -24,13 +24,12 @@ public class Task2 {
     public static List<String> parseFileToStringList(File file) throws IOException {
         Scanner scanner = new Scanner(file);
         List<String> stringList = new ArrayList<>();
-        String line;
         while (scanner.hasNextLine()) {
-            line = scanner.nextLine();
+            String line = scanner.nextLine();
             stringList.add(line);
             String[] arr = line.split(" ");
             if (Integer.parseInt(arr[1]) < 0) {
-                throw new IOException();
+                throw new IOException("Invalid input file");
             }
         }
 

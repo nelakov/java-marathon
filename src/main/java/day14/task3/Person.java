@@ -44,9 +44,9 @@ public class Person {
     public static List<Person> parseFileToObjList(File file) throws IOException {
         Scanner scanner = new Scanner(file);
         List<Person> personList = new ArrayList<>();
-        String line;
+
         while (scanner.hasNextLine()) {
-            line = scanner.nextLine();
+            String line = scanner.nextLine();
             String[] arr = line.split(" ");
             if (Integer.parseInt(arr[1]) < 0) {
                 throw new IOException();
