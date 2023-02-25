@@ -59,7 +59,6 @@ public class Task2Methods {
         return this;
     }
 
-
     public Task2Methods readSumAndPrintFromFile() throws FileNotFoundException {
         Scanner scanner2 = new Scanner(file2);
 

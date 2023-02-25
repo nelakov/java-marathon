@@ -21,52 +21,38 @@ public class Task1 {
         Scanner scanner = null;
         try {
             scanner = new Scanner(file);
-        } catch (FileNotFoundException e) {
-            out.println("File not found");
-        }
+            while (scanner.hasNextLine()) {
+                Shoes shoes = new Shoes();
+                String[] arr = scanner.nextLine().split(";");
 
-        while (scanner.hasNextLine()) {
-            Shoes shoes = new Shoes();
-            String[] arr = scanner.nextLine().split(";");
-
-            try {
                 if (arr.length != 3) {
                     throw new IOException();
                 }
-            } catch (IOException e) {
-                out.println("Invalid input file");
-            }
-
-            if (Integer.parseInt(arr[2]) == 0) {
-                for (int i = 0; i < arr.length; i++) {
-                    try {
+                if (Integer.parseInt(arr[2]) == 0) {
+                    for (int i = 0; i < arr.length; i++) {
                         if (i == 0) {
                             shoes.setName(arr[i]);
                         }
                         if (i == 1) {
-                            try {
-                                shoes.setSize(Integer.parseInt(arr[i]));
-                            } catch (NumberFormatException e) {
-                                out.println(e + "Can't parse this symbols");
-                            }
-
+                            shoes.setSize(Integer.parseInt(arr[i]));
                         }
                         if (i == 2) {
-                            try {
-                                shoes.setCount(Integer.parseInt(arr[i]));
-                            } catch (NumberFormatException e) {
-                                out.println(e + "Can't parse this symbols");
-                            }
-
+                            shoes.setCount(Integer.parseInt(arr[i]));
                         }
-
-                    } catch (ArrayIndexOutOfBoundsException e) {
-                        out.println("You try get non exist element from array");
+                        shoesList.add(shoes);
                     }
                 }
-                shoesList.add(shoes);
+            }
+        } catch (IOException | NumberFormatException | ArrayIndexOutOfBoundsException e) {
+            if (e instanceof IOException) {
+                out.println("File not found or Invalid input file");
+            } else if (e instanceof NumberFormatException) {
+                out.println(e + "Can't parse this symbols");
+            } else if (e instanceof ArrayIndexOutOfBoundsException) {
+                out.println("You try get non exist element from array");
             }
         }
+        assert scanner != null;
         scanner.close();
         return shoesList;
     }
