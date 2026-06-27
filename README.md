@@ -1,4 +1,4 @@
-# Java Marathon 
+# Java Fundamentals 2021
 
 > 19 days different tasks and diploma project 
 
