@@ -41,7 +41,7 @@ public class Plane {
 
     public void info() {
         System.out.println("Manufacturer: " + manufacturer + "\n" +
-                "Year realise: " + year + "\n" +
+                "Year release: " + year + "\n" +
                 "Length: " + length + "\n" + "Weight: " + weight + "\n" +
                 "Count of fuel: " + fuel);
     }
@@ -50,28 +50,25 @@ public class Plane {
         fuel += n;
     }
 
-    public StringBuilder beatyOutput(Plane airplane) {
-        StringBuilder beatifyOutput = new StringBuilder();
-        StringBuilder output = beatifyOutput
-                .append("Manufacturer: " + airplane.manufacturer)
+    public StringBuilder beautyOutput(Plane airplane) {
+        return new StringBuilder()
+                .append("Manufacturer: ").append(airplane.manufacturer)
                 .append(", ")
-                .append("Year realise: " + year)
+                .append("Year release: ").append(airplane.year)
                 .append(", ")
-                .append("Length: " + length)
+                .append("Length: ").append(airplane.length)
                 .append(", ")
-                .append("Count of fuel: " + weight);
-        return output;
+                .append("Weight: ").append(airplane.weight);
     }
 
     @Override
     public String toString() {
-        return 
-        "Plane: " + "\n" + 
-        "manufacturer=" + manufacturer + "\n" + 
-        "year=" + year + "\n" + 
-        " length=" + length + "\n" + 
-        " weight=" + weight + "\n" + 
-        " fuel=" + fuel;
+        return "Plane: " + "\n" +
+                "manufacturer=" + manufacturer + "\n" +
+                "year=" + year + "\n" +
+                " length=" + length + "\n" +
+                " weight=" + weight + "\n" +
+                " fuel=" + fuel;
     }
 
 }

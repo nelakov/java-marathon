@@ -26,8 +26,8 @@ public class Car {
         return year;
     }
 
-    public void info() {
-        System.out.println("It's motorbike");
+    public void printInfo() {
+        System.out.println("It's a car: " + model + ", " + color + ", " + year);
     }
 
     public int yearDifference(int inputYear) {

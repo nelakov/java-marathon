@@ -7,7 +7,7 @@ public class Task3 {
         int[][] matrix = new int [12][8];
         Random random = new Random();
         for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix.length; j++) {
+            for (int j = 0; j < matrix[i].length; j++) {
                 matrix[i][j] = random.nextInt(50);
             }
         }
@@ -16,7 +16,7 @@ public class Task3 {
         int maxIndex = 0;
         for (int i = 0; i < matrix.length; i++) {
             int sumString = 0;
-            for (int j = 0; j < matrix.length; j++) {
+            for (int j = 0; j < matrix[i].length; j++) {
                 sumString += matrix[i][j];
             }
 

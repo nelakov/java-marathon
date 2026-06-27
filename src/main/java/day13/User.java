@@ -7,8 +7,8 @@ import static day13.MessageDatabase.addNewMessage;
 
 public class User {
 
-    private String username;
-    private List<User> subscriptions;
+    private final String username;
+    private final List<User> subscriptions;
 
     public User(String username) {
         this.username = username;
@@ -20,7 +20,7 @@ public class User {
     }
 
     public List<User> getSubscriptions() {
-        return subscriptions;
+        return new ArrayList<>(subscriptions);
     }
 
     public void subscribe(User user) {
@@ -29,7 +29,6 @@ public class User {
 
     public boolean isSubscribed(User user) {
         return subscriptions.contains(user);
-
     }
 
     public boolean isFriend(User user) {

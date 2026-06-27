@@ -1,10 +1,10 @@
 package day11.task1;
 
 public interface Worker {
-    
-    public void doWork();
-    
-    public void bonus();
 
+    int TARGET_COUNT_ORDERS = 10000;
 
+    void doWork();
+
+    void bonus();
 }

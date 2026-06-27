@@ -6,21 +6,21 @@ public class Task3 {
 
         int[] numbers = {14, 23, 11, 16, 22, 27, 5, 15, 18, 24, 150, 8};
         for (int number: numbers)
-            addNote(number, root);
+            addNode(number, root);
 
-        deepForSearch(root);
+        inOrderTraversal(root);
     }
 
-    private static void deepForSearch(Node node) {
+    private static void inOrderTraversal(Node node) {
         if (node == null)
             return;
 
-        deepForSearch(node.getLeft());
+        inOrderTraversal(node.getLeft());
         System.out.print(node.getValue() + " ");
-        deepForSearch(node.getRight());
+        inOrderTraversal(node.getRight());
     }
 
-    private static void addNote(int insertValue, Node root) {
+    private static void addNode(int insertValue, Node root) {
         if (root == null)
             throw new IllegalArgumentException("Root node must be not null!");
 
@@ -47,8 +47,8 @@ public class Task3 {
 
 class Node {
     private int value;
-    private Node left; // by default null form created object
-    private Node right; // by default null form created object
+    private Node left;
+    private Node right;
 
     public Node(int value) {
         this.value = value;

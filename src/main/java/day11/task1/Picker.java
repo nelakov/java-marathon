@@ -1,37 +1,32 @@
 package day11.task1;
 
 public class Picker implements Worker {
-    
-    private int salary;
-    private boolean isPayed;
-    private Warehouse warehouse;
-    private int counterBonus = 0;
-    private int counterWork = 0;
-    private static final int TARGET_COUNT_ORDERS = 10000;
 
-    public Picker(int salary, boolean isPayed, Warehouse warehouse) {
+    private int salary;
+    private boolean isPaid;
+    private final Warehouse warehouse;
+    private boolean bonusPaid = false;
+    private int counterWork = 0;
+
+    public Picker(int salary, boolean isPaid, Warehouse warehouse) {
         this.salary = salary;
-        this.isPayed = isPayed;
+        this.isPaid = isPaid;
         this.warehouse = warehouse;
     }
 
     public int getSalary() {
         return salary;
     }
-    public boolean isPayed() {
-        return isPayed;
+
+    public boolean isPaid() {
+        return isPaid;
     }
-    
-    public Picker(int salary, boolean isPayed) {
-        this.salary = salary;
-        this.isPayed = isPayed;
-    }
-    
+
     @Override
     public String toString() {
         return "Picker " + "\n" +
-                "---> Salary = " + salary + "\n" + 
-                "---> BONUS is payed? = " + isPayed;
+                "---> Salary = " + salary + "\n" +
+                "---> BONUS is paid? = " + isPaid;
     }
 
     @Override
@@ -43,18 +38,17 @@ public class Picker implements Worker {
 
     @Override
     public void bonus() {
-        
-        if(counterBonus >= 1) {
-            System.out.println("Bonus was payed alredy");
+        if (bonusPaid) {
+            System.out.println("Bonus was paid already");
         } else {
-            if(warehouse.getCountPickedOrders() < TARGET_COUNT_ORDERS) {
+            if (warehouse.getCountPickedOrders() < TARGET_COUNT_ORDERS) {
                 System.out.println("Bonus unavailable");
             }
-    
-            if(warehouse.getCountPickedOrders() == TARGET_COUNT_ORDERS) {
-                salary += 70.000;
-                isPayed = true;
-                counterBonus++;
+
+            if (warehouse.getCountPickedOrders() == TARGET_COUNT_ORDERS) {
+                salary += 70_000;
+                isPaid = true;
+                bonusPaid = true;
             }
         }
     }

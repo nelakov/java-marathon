@@ -17,7 +17,7 @@ public class Shaman extends Hero implements MagicAttack, Healer {
     @Override
     public void magicalAttack(Hero hero) {
         double damage = MAGIC_ATTACK * (1 - hero.magicDef);
-        if (health == MIN_HEALTH) {
+        if (hero.health == MIN_HEALTH) {
             System.out.println("Hero alredy death! Don't hit the dead");
             return;
         }
@@ -26,35 +26,19 @@ public class Shaman extends Hero implements MagicAttack, Healer {
         if (healthAfterDamage < MIN_HEALTH) {
             hero.health = MIN_HEALTH;
         } else {
-            hero.health -= healthAfterDamage;
+            hero.health = (int) healthAfterDamage;
         }
 
     }
 
     @Override
     public void healHimself() {
-        int heal = health + HEALER_SELF;
-        if (health == MAX_HEALTH) {
-            System.out.println("The hero is healthy! Don't pretend!");
-        } else if (heal > MAX_HEALTH) {
-            health = MAX_HEALTH;
-        } else {
-            health = heal;
-        }
-
+        applySelfHeal(HEALER_SELF);
     }
 
     @Override
     public void healTeammate(Hero hero) {
-        int healthTeammate = hero.health + HEALER_TEAMMATE;
-
-        if (hero.health == MAX_HEALTH) {
-            System.out.println("Bastard! You are healthy! Don't pretend!");
-        } else if (healthTeammate > MAX_HEALTH) {
-            hero.health = MAX_HEALTH;
-        } else {
-            hero.health = healthTeammate;
-        }
+        applyTeammateHeal(hero, HEALER_TEAMMATE);
     }
 
     @Override

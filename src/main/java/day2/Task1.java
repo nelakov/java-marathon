@@ -11,10 +11,12 @@ public class Task1 {
             System.out.println("Incorrect input");
         } else if (countFloor >= 1 && countFloor <= 4) {
             System.out.println("Low-rise house");
-        } else if (countFloor >= 1 && countFloor <= 4) {
+        } else if (countFloor >= 5 && countFloor <= 9) {
             System.out.println("Medium-rise house");
-        } else if (countFloor >= 1 && countFloor <= 4) {
-            System.out.println("Мultistory house");
+        } else if (countFloor >= 10) {
+            System.out.println("Multistory house");
+        } else {
+            System.out.println("Incorrect input");
         }
     }
 }

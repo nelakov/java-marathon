@@ -1,21 +1,22 @@
-/*
 package day7;
 
 import java.util.Random;
 
 public class Player {
-    private int stamina;
-    private static int countOfPlayer = 0;
+    private static final int MAX_PLAYERS = 6;
     private static final int MAX_STAMINA = 100;
     private static final int MIN_STAMINA = 0;
-    
+    private static final int MIN_INITIAL_STAMINA = 90;
+
+    private static int playerCount = 0;
+
+    private int stamina;
+
     public Player(int stamina) {
-        if(countOfPlayer >= 6){
-            info();
-            return;
+        boolean seated = takeSeat();
+        if (seated) {
+            this.stamina = stamina;
         }
-        info();
-        this.stamina = stamina;
     }
 
     public void setStamina(int stamina) {
@@ -25,75 +26,50 @@ public class Player {
     public int getStamina() {
         return this.stamina;
     }
-    
-    public static int getCountOfPlayer() {
-        return countOfPlayer;
+
+    public static int getPlayerCount() {
+        return playerCount;
     }
 
     public void run(Player player) {
-        int stamina = player.getStamina();
-        if(stamina < MIN_STAMINA || stamina > MAX_STAMINA) {
-           return;
-        } else if(stamina == 0) {
-            System.out.println("Игрок уходит с поля");
-            --countOfPlayer;
-            info();
+        int currentStamina = player.getStamina();
+        if (currentStamina > MAX_STAMINA) {
             return;
         }
-        int decreaseStamina = stamina - 1;
-        player.setStamina(decreaseStamina);
-        
-    }
-
-    public void info() {
-        if(countOfPlayer < 6) {
-            switch(countOfPlayer) {
-                case 0:
-                System.out.println("Команды неполные. Cвободных мест на поле: 6");
-                break;
-
-                case 1:
-                System.out.println("Команды неполные. Cвободных мест на поле: 5");
-                break;
-
-                case 2:
-                System.out.println("Команды неполные. Cвободных мест на поле: 4");
-                break;
-
-                case 3:
-                System.out.println("Команды неполные. Cвободных мест на поле: 3");
-                break;
-
-                case 4:
-                System.out.println("Команды неполные. Cвободных мест на поле: 2");
-                break;
-
-                case 5:
-                System.out.println("Команды неполные. Cвободных мест на поле: 1");
-                break;
-            }
-            ++countOfPlayer;
-        } else {
-            System.out.println("На поле нет свободных мест");
+        if (currentStamina <= MIN_STAMINA) {
+            System.out.println("Player leaves the field");
+            --playerCount;
+            printFieldStatus();
+            return;
         }
-    
+        player.setStamina(currentStamina - 1);
     }
-    
+
+    private static boolean takeSeat() {
+        if (playerCount >= MAX_PLAYERS) {
+            System.out.println("No free seats on the field");
+            return false;
+        }
+        ++playerCount;
+        printFieldStatus();
+        return true;
+    }
+
+    private static void printFieldStatus() {
+        if (playerCount >= MAX_PLAYERS) {
+            System.out.println("No free seats on the field");
+            return;
+        }
+        int freeSeats = MAX_PLAYERS - playerCount;
+        System.out.println("Teams are incomplete. Free seats on the field: " + freeSeats);
+    }
+
     public static void main(String[] args) {
         Random random = new Random();
-        Player player1 = new Player(random.nextInt(90,100));
-        Player player2 = new Player(random.nextInt(90,100));
-        Player player3 = new Player(random.nextInt(90,100));
-        Player player4 = new Player(random.nextInt(90,100));
-        Player player5 = new Player(random.nextInt(90,100));
-        Player player6 = new Player(random.nextInt(90,100));
-        Player player7 = new Player(random.nextInt(90,100));
-        Player player8 = new Player(random.nextInt(90,100));
-        
-        for (int i = player1.getStamina(); i == player1.getStamina(); i--) {
-            player1.run(player1);
+        Player player = new Player(random.nextInt(MIN_INITIAL_STAMINA, MAX_STAMINA));
+
+        while (player.getStamina() > MIN_STAMINA) {
+            player.run(player);
         }
     }
-
 }
-*/

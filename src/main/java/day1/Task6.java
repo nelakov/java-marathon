@@ -3,13 +3,17 @@ package day1;
 import java.util.Scanner;
 
 public class Task6 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int k = scanner.nextInt();
+    private static final int MULTIPLICATION_TABLE_SIZE = 10;
 
-        for (int i = 1; i < 10; i++) {
-            int total = i * k;
-            System.out.printf("%d x %d = %d \n",i,k,total);
+    public static void main(String[] args) {
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.print("Input a number: ");
+            int multiplier = scanner.nextInt();
+
+            for (int i = 1; i < MULTIPLICATION_TABLE_SIZE; i++) {
+                int total = i * multiplier;
+                System.out.printf("%d x %d = %d \n", i, multiplier, total);
+            }
         }
     }
 }

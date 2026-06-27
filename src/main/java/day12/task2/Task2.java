@@ -11,12 +11,11 @@ public class Task2 {
         System.out.println(num);
     }
 
-    public static void evenNumber(int a, int b, List<Integer> list) {
-        for (int i = a; i <= b; i++) {
-            if (i % 2 == 0) {
-                list.add(a);
+    public static void evenNumber(int from, int to, List<Integer> list) {
+        for (int number = from; number <= to; number++) {
+            if (number % 2 == 0) {
+                list.add(number);
             }
-            a++;
         }
     }
 }

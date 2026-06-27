@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MessageDatabase {
-    static List<Message> messages = new ArrayList<>();
+    private static final List<Message> messages = new ArrayList<>();
 
     public static void addNewMessage(User sender, User receiver, String text) {
         messages.add(new Message(sender, receiver, text));
@@ -14,16 +14,21 @@ public class MessageDatabase {
         return messages;
     }
 
-    public static void showDialog(User u1, User u2) {
+    public static void showDialog(User firstUser, User secondUser) {
         for (Message message : messages) {
-            if (message.getSender().equals(u1) || message.getReceiver().equals(u2)) {
-                System.out.println("\"" + message.getSender().getUsername() + " :\"" + message.getText());
-            }
-
-            if (message.getSender().equals(u2) || message.getReceiver().equals(u1)) {
-                System.out.println("\"" + message.getSender().getUsername() + " :\"" + message.getText());
+            if (isBetween(message, firstUser, secondUser)) {
+                System.out.println(formatDialogLine(message));
             }
         }
+    }
+
+    private static boolean isBetween(Message message, User firstUser, User secondUser) {
+        return (message.getSender().equals(firstUser) && message.getReceiver().equals(secondUser))
+                || (message.getSender().equals(secondUser) && message.getReceiver().equals(firstUser));
+    }
+
+    private static String formatDialogLine(Message message) {
+        return message.getSender().getUsername() + ": " + message.getText();
     }
 }
 

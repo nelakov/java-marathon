@@ -4,7 +4,7 @@ public class Rectangle extends Figure {
     private int width;
     private int height;
     
-    public Rectangle(int width, int height, String color    ) {
+    public Rectangle(int width, int height, String color) {
         super(color);
         this.width = width;
         this.height = height;
@@ -12,14 +12,12 @@ public class Rectangle extends Figure {
 
     @Override
     public double area() {
-        double s = width * height;
-        return s;
+        return width * height;
     }
 
     @Override
     public double perimeter() {
-        double p = 2 * (width + height);
-        return p;
+        return 2 * (width + height);
     }
 
     

@@ -14,14 +14,12 @@ public class Circle extends Figure {
 
     @Override
     public double area() {
-        double s = Math.PI * (radius * radius);
-        return s;
+        return Math.PI * radius * radius;
     }
 
     @Override
     public double perimeter() {
-        double p = 2*Math.PI*radius;
-        return p;
+        return 2 * Math.PI * radius;
     }
     
 }

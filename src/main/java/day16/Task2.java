@@ -8,11 +8,11 @@ public class Task2 {
 
         try {
             methods
-                    .writeRandomNumberToFile()
-                    .readAndСalculateArithmeticMean()
+                    .writeRandomNumbersToFile()
+                    .readAndCalculateArithmeticMean()
                     .readSumAndPrintFromFile();
         } catch (FileNotFoundException e) {
-            throw new RuntimeException("File was not found");
+            throw new RuntimeException("File was not found", e);
         }
     }
 }
