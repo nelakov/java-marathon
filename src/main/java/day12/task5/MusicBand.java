@@ -14,13 +14,13 @@ public class MusicBand {
         this.year = year;
     }
 
-    static void transferMembers(List<MusicArtist> a, List<MusicArtist> b) {
-        a.addAll(b);
+    static void transferMembers(List<MusicArtist> target, List<MusicArtist> source) {
+        target.addAll(source);
     }
 
     void printMembers(List<MusicArtist> members) {
-        for (MusicArtist member: members) {
-            System.out.println(member.toString());
+        for (MusicArtist member : members) {
+            System.out.println(member);
         }
     }
 

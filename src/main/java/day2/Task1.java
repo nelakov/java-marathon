@@ -15,6 +15,8 @@ public class Task1 {
             System.out.println("Medium-rise house");
         } else if (countFloor >= 10) {
             System.out.println("Multistory house");
+        } else {
+            System.out.println("Incorrect input");
         }
     }
 }

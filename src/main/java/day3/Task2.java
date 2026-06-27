@@ -4,20 +4,20 @@ import java.util.Scanner;
 
 public class Task2 {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         while (true) {
-            Scanner scanner = new Scanner(System.in);
             System.out.println("Hello user. Please input divisible and divisor");
             System.out.println();
             System.out.println("Your divisible");
-            double a = scanner.nextDouble();
+            double dividend = scanner.nextDouble();
             System.out.println("Your divisor");
-            double b = scanner.nextDouble();
-            if(b == 0) {
-                System.out.println("Ooops! Cannot be divided by zero! Go to school loser");
+            double divisor = scanner.nextDouble();
+            if(divisor == 0) {
+                System.out.println("Cannot divide by zero. Please enter a non-zero divisor.");
                 break;
-            } 
-            double c = a / b;
-            System.out.println(c);
+            }
+            double quotient = dividend / divisor;
+            System.out.println(quotient);
         }
     }
 }

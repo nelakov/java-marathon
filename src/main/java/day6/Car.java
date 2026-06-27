@@ -26,7 +26,7 @@ public class Car {
         return year;
     }
 
-    public void info() {
+    public void printInfo() {
         System.out.println("It's a car: " + model + ", " + color + ", " + year);
     }
 

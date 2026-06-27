@@ -7,7 +7,7 @@ public class Task2 {
         plane.setLength(1500);
         plane.fillUp(100);
         plane.fillUp(200);
-        plane.info();
+        plane.printInfo();
     }
     
 }

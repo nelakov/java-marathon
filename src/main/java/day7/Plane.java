@@ -43,11 +43,11 @@ public class Plane {
         return fuel;
     }
 
-    public void info() {
+    public void printInfo() {
         System.out.println("Manufacturer: " + manufacturer + "\n" +
-             "Year realise: " + year + "\n" + 
-             "Length: " + length + "\n" + "Weight: " + weight + "\n" + 
-             "Count of fuel: " + fuel
+             "Year released: " + year + "\n" +
+             "Length: " + length + "\n" + "Weight: " + weight + "\n" +
+             "Fuel: " + fuel
         );
     }
 

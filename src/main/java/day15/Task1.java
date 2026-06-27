@@ -11,11 +11,9 @@ import java.util.Scanner;
 import static java.lang.System.out;
 
 public class Task1 {
-    //Create two path
-    static File FILE = new File("C:\\Users\\nelak\\Repositories\\IdeaProjects\\JavaMarathon2021\\JavaMarathon2021\\files\\shoes.csv");
-    static File FILE_OUT = new File("C:\\Users\\nelak\\Repositories\\IdeaProjects\\JavaMarathon2021\\JavaMarathon2021\\files\\result.txt");
+    static File INPUT_FILE = new File("files/shoes.csv");
+    static File OUTPUT_FILE = new File("files/result.txt");
 
-    //Mapping on the Shoes DTO
     public static List<Shoes> parseFileToObjList(File file) {
         List<Shoes> shoesList = new ArrayList<>();
         try (Scanner scanner = new Scanner(file)) {
@@ -27,36 +25,25 @@ public class Task1 {
                     throw new IOException();
                 }
                 if (Integer.parseInt(arr[2]) == 0) {
-                    for (int i = 0; i < arr.length; i++) {
-                        if (i == 0) {
-                            shoes.setName(arr[i]);
-                        }
-                        if (i == 1) {
-                            shoes.setSize(Integer.parseInt(arr[i]));
-                        }
-                        if (i == 2) {
-                            shoes.setCount(Integer.parseInt(arr[i]));
-                        }
-                    }
+                    shoes.setName(arr[0]);
+                    shoes.setSize(Integer.parseInt(arr[1]));
+                    shoes.setCount(Integer.parseInt(arr[2]));
                     shoesList.add(shoes);
                 }
             }
-        } catch (IOException | NumberFormatException | ArrayIndexOutOfBoundsException e) {
-            if (e instanceof IOException) {
-                out.println("File not found or Invalid input file");
-            } else if (e instanceof NumberFormatException) {
-                out.println(e + "Can't parse this symbols");
-            } else if (e instanceof ArrayIndexOutOfBoundsException) {
-                out.println("You try get non exist element from array");
-            }
+        } catch (IOException e) {
+            out.println("File not found or Invalid input file");
+        } catch (NumberFormatException e) {
+            out.println(e + "Can't parse this symbols");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            out.println("You try get non exist element from array");
         }
         return shoesList;
     }
 
-    // Parsing from List and write to file
     public static void writeAbsenteesShoesToNewFile(List<Shoes> shoesList) {
-        FILE_OUT.getParentFile().mkdirs();
-        try (PrintWriter pw = new PrintWriter(FILE_OUT)) {
+        OUTPUT_FILE.getParentFile().mkdirs();
+        try (PrintWriter pw = new PrintWriter(OUTPUT_FILE)) {
             for (Shoes shoe : shoesList) {
                 pw.println(shoe.getName() + ";" + shoe.getSize() + ";" + shoe.getCount() + ";");
             }
@@ -66,8 +53,7 @@ public class Task1 {
     }
 
     public static void main(String[] args) {
-        List<Shoes> stringList = parseFileToObjList(FILE);
-        writeAbsenteesShoesToNewFile(stringList);
-
+        List<Shoes> absentShoes = parseFileToObjList(INPUT_FILE);
+        writeAbsenteesShoesToNewFile(absentShoes);
     }
 }

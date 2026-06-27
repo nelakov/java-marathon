@@ -1,8 +1,8 @@
 package day11.task2;
 
 public abstract class Hero implements PhysAttack {
-    final int MIN_HEALTH = 0;
-    final int MAX_HEALTH = 100;
+    static final int MIN_HEALTH = 0;
+    static final int MAX_HEALTH = 100;
     int health;
     int physAtt;
     double physDef;
@@ -30,7 +30,29 @@ public abstract class Hero implements PhysAttack {
 
     }
 
-    @ Override
+    protected void applySelfHeal(int amount) {
+        int cured = health + amount;
+        if (health == MAX_HEALTH) {
+            System.out.println("The hero is healthy! Don't pretend!");
+        } else if (cured > MAX_HEALTH) {
+            health = MAX_HEALTH;
+        } else {
+            health = cured;
+        }
+    }
+
+    protected void applyTeammateHeal(Hero hero, int amount) {
+        int curedTeammate = hero.health + amount;
+        if (hero.health == MAX_HEALTH) {
+            System.out.println("Bastard! You are healthy! Don't pretend!");
+        } else if (curedTeammate > MAX_HEALTH) {
+            hero.health = MAX_HEALTH;
+        } else {
+            hero.health = curedTeammate;
+        }
+    }
+
+    @Override
     public String toString() {
         return "Hero [health=" + health + ", physDef=" + physDef + ", magicDef=" + magicDef + ", physAtt=" + physAtt
                 + "]";

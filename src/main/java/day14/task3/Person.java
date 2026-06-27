@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Person {
-    static File file = new File("files/people");
     private String name;
     private int age;
 
@@ -42,26 +41,28 @@ public class Person {
     }
 
     public static List<Person> parseFileToObjList(File file) throws IOException {
-        Scanner scanner = new Scanner(file);
-        List<Person> personList = new ArrayList<>();
+        List<Person> people = new ArrayList<>();
 
-        while (scanner.hasNextLine()) {
-            String line = scanner.nextLine();
-            String[] arr = line.split(" ");
-            if (Integer.parseInt(arr[1]) < 0) {
-                throw new IOException();
+        try (Scanner scanner = new Scanner(file)) {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] arr = line.split(" ");
+                if (Integer.parseInt(arr[1]) < 0) {
+                    throw new IOException("Invalid input file: age must not be negative");
+                }
+                String name = arr[0];
+                int age = Integer.parseInt(arr[1]);
+                people.add(new Person(name, age));
             }
-            String name = arr[0];
-            int age = Integer.parseInt(arr[1]);
-            personList.add(new Person(name, age));
         }
-        return personList;
+        return people;
     }
 
     public static void main(String[] args) {
+        File file = new File("files/people");
         try {
-            List<Person> stringList = parseFileToObjList(file);
-            System.out.println(stringList);
+            List<Person> people = parseFileToObjList(file);
+            System.out.println(people);
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
         } catch (IOException e) {

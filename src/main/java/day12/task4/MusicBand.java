@@ -1,7 +1,5 @@
 package day12.task4;
 
-import day12.task5.MusicArtist;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,14 +14,14 @@ public class MusicBand {
         this.year = year;
     }
 
-    static void transferMembers(List<String> a, List<String> b) {
-        a.addAll(b);
-        b.clear();
+    static void transferMembers(List<String> target, List<String> source) {
+        target.addAll(source);
+        source.clear();
     }
 
     void printMembers(List<String> members) {
-        for (String member: members) {
-            System.out.println(member.toString());
+        for (String member : members) {
+            System.out.println(member);
         }
     }
 

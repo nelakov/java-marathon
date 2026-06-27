@@ -8,6 +8,6 @@ public class Task1 {
         car.setYear(1992);
 
         System.out.println(
-                "Car: " + car.getModel() + "\n" + "Color: " + car.getColor() + "\n" + "Realise: " + car.getYear());
+                "Car: " + car.getModel() + "\n" + "Color: " + car.getColor() + "\n" + "Release: " + car.getYear());
     }
 }

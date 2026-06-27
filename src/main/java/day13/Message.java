@@ -4,10 +4,10 @@ import java.util.Date;
 
 public class Message {
 
-    private User sender;
-    private User receiver;
-    private String text;
-    private Date date;
+    private final User sender;
+    private final User receiver;
+    private final String text;
+    private final Date date;
 
     public Message(User sender, User receiver, String text) {
         this.sender = sender;
@@ -29,15 +29,14 @@ public class Message {
     }
 
     public Date getDate() {
-        return date;
+        return new Date(date.getTime());
     }
 
     @Override
     public String toString() {
-        return
-                        "FROM: " + "'" + sender + "'"+
-                        "TO: " + "'" + receiver + "'"+
-                        "ON: " + date +
-                                "'" + text + "'";
+        return "FROM: '" + sender + "' "
+                + "TO: '" + receiver + "' "
+                + "ON: " + date + " "
+                + "'" + text + "'";
     }
 }

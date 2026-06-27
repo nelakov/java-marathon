@@ -20,8 +20,7 @@ public class Triangle extends Figure {
 
     @Override
     public double perimeter() {
-        double p = length1 + length2 + length3;
-        return p;
+        return length1 + length2 + length3;
     }
 
 }

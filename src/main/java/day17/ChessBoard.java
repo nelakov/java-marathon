@@ -1,48 +1,45 @@
 package day17;
 
 public class ChessBoard {
-    private ChessPiece[][] chessBoard;
+    private static final int CELL_WIDTH = 5;
 
-    public ChessBoard(ChessPiece[][] chessBoard) {
-        this.chessBoard = chessBoard;
+    private final ChessPiece[][] cells;
+
+    public ChessBoard(ChessPiece[][] cells) {
+        this.cells = cells;
     }
 
-    public void print() {
-        // Text value to display in the output window:
-        String txt = "\t|\t";
+    public void print(String caption) {
+        StringBuilder board = new StringBuilder("\t|\t");
 
-        txt += "\n";
-        for (int i = 1; i <= 5 * chessBoard.length; i++) {
-            txt += "-";
-        }
-        // Filling the array:
-        for (int i = 0; i <= chessBoard.length -1 ; i++) {
-            // Text value addition:
-            txt += "\n" + (8 - i) + "\t|\t";
-            for (int j = 0; j <= chessBoard.length - 1; j++) {
-                // Receive text representation of chess piece:
-                String text = chessBoard[i][j].getRepresentation();
-                // Text value addition:
-                txt += text + "\t";
+        board.append("\n").append(buildSeparator(CELL_WIDTH * cells.length));
+
+        for (int i = 0; i < cells.length; i++) {
+            board.append("\n").append(8 - i).append("\t|\t");
+            for (int j = 0; j < cells[i].length; j++) {
+                board.append(cells[i][j].getRepresentation()).append("\t");
             }
         }
 
-        txt += "\n";
-        for (int i = 1; i <= 5 * chessBoard.length; i++) {
-            txt += "-";
-        }
+        board.append("\n").append(buildSeparator(CELL_WIDTH * cells.length));
 
-        txt += "\n";
+        board.append("\n");
+        board.append("\t|\t");
 
-        txt += "\t|\t";
-
-        for (char i = 'a'; i <= 'h'; i++) {
-            txt += i + "\t";
+        for (char column = 'a'; column <= 'h'; column++) {
+            board.append(column).append("\t");
         }
 
         System.out.println("ChessBoard: ");
-        System.out.println("Kramnik - Kasparov 2000 year match:");
-        System.out.println(txt);
+        System.out.println(caption);
+        System.out.println(board);
+    }
 
+    private String buildSeparator(int width) {
+        StringBuilder separator = new StringBuilder(width);
+        for (int i = 0; i < width; i++) {
+            separator.append("-");
+        }
+        return separator.toString();
     }
 }

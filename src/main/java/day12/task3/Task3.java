@@ -31,14 +31,14 @@ public class Task3 {
         musicBandList.add(seether);
         Collections.shuffle(musicBandList);
 
+        System.out.println("LIST 1");
         for (MusicBand band : musicBandList) {
-            System.out.println("LIST 1");
-            System.out.println(band.toString());
+            System.out.println(band);
         }
 
-        for (MusicBand band:groupsAfter2000(musicBandList)) {
-            System.out.println("LIST 2");
-            System.out.println(band.toString());
+        System.out.println("LIST 2");
+        for (MusicBand band : groupsAfter2000(musicBandList)) {
+            System.out.println(band);
         }
     }
 

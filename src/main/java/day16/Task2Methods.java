@@ -7,6 +7,9 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Task2Methods {
+    private static final int NUMBERS_COUNT = 1000;
+    private static final int BATCH_SIZE = 20;
+
     private static File file1 = new File("files/file1");
     private static File file2 = new File("files/file2");
     private static Random random = new Random();
@@ -30,8 +33,8 @@ public class Task2Methods {
         }
     }
 
-    public Task2Methods writeRandomNumberToFile() {
-        for (int i = 0; i < 1000; i++) {
+    public Task2Methods writeRandomNumbersToFile() {
+        for (int i = 0; i < NUMBERS_COUNT; i++) {
             pw1.println(random.nextInt(100));
         }
         pw1.close();
@@ -40,19 +43,19 @@ public class Task2Methods {
 
 
     public Task2Methods readAndCalculateArithmeticMean() throws FileNotFoundException {
-        Scanner scanner = new Scanner(file1);
+        try (Scanner scanner = new Scanner(file1)) {
+            int counter = 0;
+            int sum = 0;
+            while (scanner.hasNextLine()) {
+                sum += Integer.parseInt(scanner.nextLine());
+                counter++;
 
-        int counter = 0;
-        int sum = 0;
-        while (scanner.hasNextLine()) {
-            sum += Integer.parseInt(scanner.nextLine());
-            counter++;
+                if (counter == BATCH_SIZE) {
+                    pw2.println(sum / (double) BATCH_SIZE);
 
-            if (counter == 20) {
-                pw2.println(sum / 20.0);
-
-                counter = 0;
-                sum = 0;
+                    counter = 0;
+                    sum = 0;
+                }
             }
         }
         pw2.close();
@@ -60,11 +63,11 @@ public class Task2Methods {
     }
 
     public Task2Methods readSumAndPrintFromFile() throws FileNotFoundException {
-        Scanner scanner2 = new Scanner(file2);
-
         double result = 0;
-        while (scanner2.hasNextLine()) {
-            result += Double.parseDouble(scanner2.nextLine());
+        try (Scanner scanner = new Scanner(file2)) {
+            while (scanner.hasNextLine()) {
+                result += Double.parseDouble(scanner.nextLine());
+            }
         }
         System.out.println((int) result);
         return this;

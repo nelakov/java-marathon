@@ -3,12 +3,12 @@ package day12.task5;
 public class MusicArtist {
     private String name;
     private String surname;
-    private int birthday;
+    private int birthYear;
 
-    public MusicArtist(String name, String surname, int birthday) {
+    public MusicArtist(String name, String surname, int birthYear) {
         this.name = name;
         this.surname = surname;
-        this.birthday = birthday;
+        this.birthYear = birthYear;
     }
 
     public String getName() {
@@ -27,17 +27,17 @@ public class MusicArtist {
         this.surname = surname;
     }
 
-    public int getBirthday() {
-        return birthday;
+    public int getBirthYear() {
+        return birthYear;
     }
 
-    public void setBirthday(int birthday) {
-        this.birthday = birthday;
+    public void setBirthYear(int birthYear) {
+        this.birthYear = birthYear;
     }
 
     @Override
     public String toString() {
-        return "Member{" +
+        return "MusicArtist{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 '}';

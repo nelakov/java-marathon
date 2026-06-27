@@ -1,9 +1,11 @@
-/*
 package day6;
 
 import java.util.Random;
 
 public class Teacher {
+    private static final int MIN_GRADE = 2;
+    private static final int MAX_GRADE = 4;
+
     private String name;
     private String science;
 
@@ -29,34 +31,19 @@ public class Teacher {
     }
 
     public void evaluate(Student student) {
-        Random random = new Random();
-        int evaluation = random.nextInt(5);
-
-        System.out.println("Teacher " + name + " evaluate student with name " + student.getName() + "\n" + "Subject " + science + "\n" + "Evaluation " + evaluation());
+        System.out.println("Teacher " + name + " evaluate student with name " + student.getName() + "\n"
+            + "Subject " + science + "\n"
+            + "Evaluation " + evaluation());
     }
 
     public String evaluation() {
         Random random = new Random();
-        int evaluationInt = random.nextInt(2, 5);
-        String evaluation = null;
-        switch (evaluationInt) {
-            case 2:
-                evaluation = "BAD";
-                break;
-
-            case 3:
-                evaluation = "WITH BEAR GOOD";
-                break;
-
-            case 4:
-                evaluation = "GOOD";
-                break;
-            case 5:
-                evaluation = "THE BEST";
-                break;
-        }
-        return evaluation;
+        int grade = random.nextInt(MIN_GRADE, MAX_GRADE + 1);
+        return switch (grade) {
+            case 2 -> "BAD";
+            case 3 -> "WITH BEAR GOOD";
+            case 4 -> "GOOD";
+            default -> throw new IllegalStateException("Unexpected grade: " + grade);
+        };
     }
-
 }
-*/

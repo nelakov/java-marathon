@@ -1,14 +1,8 @@
 package day4;
 
-import java.util.Arrays;
 import java.util.Random;
 
-import javax.lang.model.element.Element;
-
 public class Task2 {
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         int min = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;

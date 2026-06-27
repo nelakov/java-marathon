@@ -6,6 +6,8 @@ public class Task2 {
     }
 
     public static int count7(int n) {
+        n = Math.abs(n);
+
         if (n == 0)
             return 0;
 

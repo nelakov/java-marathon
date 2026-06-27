@@ -4,9 +4,9 @@ public class Motorbike {
 
     private String model;
     private String color;
-    private String year;
+    private int year;
 
-    public Motorbike(String model, String color, String year) {
+    public Motorbike(String model, String color, int year) {
         this.model = model;
         this.color = color;
         this.year = year;
@@ -18,7 +18,7 @@ public class Motorbike {
     public String getColor() {
         return color;
     }
-    public String getYear() {
+    public int getYear() {
         return year;
     }
 }

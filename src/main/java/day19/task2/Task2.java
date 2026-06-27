@@ -10,9 +10,8 @@ import static java.lang.System.out;
 
 public class Task2 {
     private static Scanner scanner = new Scanner(System.in);
-    private static File file = new File("C:\\Users\\nelak\\Repositories\\IdeaProjects\\JavaMarathon2021\\JavaMarathon2021\\src\\main\\resources\\taxi_cars.txt");
-    private static Map<Integer, Point> taxiCars = new HashMap();
-    private static Map<Point, Point> square = new HashMap();
+    private static File file = new File("src/main/resources/taxi_cars.txt");
+    private static Map<Integer, Point> taxiCars = new HashMap<>();
     private static int x1;
     private static int y1;
     private static int x2;
@@ -37,11 +36,11 @@ public class Task2 {
                 taxiCars.put(idTaxi, new Point(x, y));
             }
         } catch (IOException e) {
-            out.println(e + " ---> File not found or Invalid input file");
+            throw new RuntimeException("File not found or invalid input file", e);
         } catch (NumberFormatException e) {
-            out.println(e + " ---> Can't parse this symbols");
+            throw new RuntimeException("Can't parse these symbols", e);
         } catch (ArrayIndexOutOfBoundsException e) {
-            out.println(e + " ---> You try get non exist element from array");
+            throw new RuntimeException("Tried to get a non-existent element from array", e);
         }
         return taxiCars;
     }
@@ -74,7 +73,7 @@ public class Task2 {
         System.out.println("First point x1,y1:");
         x1 = scanner.nextInt();
         y1 = scanner.nextInt();
-        System.out.println("Second point x1,y1:");
+        System.out.println("Second point x2,y2:");
         x2 = scanner.nextInt();
         y2 = scanner.nextInt();
         isCarInTheSquare(taxiCars);

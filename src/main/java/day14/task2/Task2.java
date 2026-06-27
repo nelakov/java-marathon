@@ -22,14 +22,18 @@ public class Task2 {
     }
 
     public static List<String> parseFileToStringList(File file) throws IOException {
-        Scanner scanner = new Scanner(file);
         List<String> stringList = new ArrayList<>();
-        while (scanner.hasNextLine()) {
-            String line = scanner.nextLine();
-            stringList.add(line);
-            String[] arr = line.split(" ");
-            if (Integer.parseInt(arr[1]) < 0) {
-                throw new IOException("Invalid input file");
+        try (Scanner scanner = new Scanner(file)) {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] arr = line.split(" ");
+                if (arr.length < 2) {
+                    continue;
+                }
+                stringList.add(line);
+                if (Integer.parseInt(arr[1]) < 0) {
+                    throw new IOException("Invalid input file");
+                }
             }
         }
 
