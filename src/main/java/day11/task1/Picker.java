@@ -52,7 +52,7 @@ public class Picker implements Worker {
             }
     
             if(warehouse.getCountPickedOrders() == TARGET_COUNT_ORDERS) {
-                salary += 70.000;
+                salary += 70_000;
                 isPayed = true;
                 counterBonus++;
             }

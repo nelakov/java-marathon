@@ -7,8 +7,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Task2Methods {
-    private static File file1 = new File("C:\\Users\\nelak\\Repositories\\IdeaProjects\\JavaMarathon2021\\JavaMarathon2021\\files\\file1");
-    private static File file2 = new File("C:\\Users\\nelak\\Repositories\\IdeaProjects\\JavaMarathon2021\\JavaMarathon2021\\files\\file2");
+    private static File file1 = new File("files/file1");
+    private static File file2 = new File("files/file2");
     private static Random random = new Random();
     private static PrintWriter pw1;
 
@@ -39,7 +39,7 @@ public class Task2Methods {
     }
 
 
-    public Task2Methods readAndСalculateArithmeticMean() throws FileNotFoundException {
+    public Task2Methods readAndCalculateArithmeticMean() throws FileNotFoundException {
         Scanner scanner = new Scanner(file1);
 
         int counter = 0;

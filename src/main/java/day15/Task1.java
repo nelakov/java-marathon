@@ -18,9 +18,7 @@ public class Task1 {
     //Mapping on the Shoes DTO
     public static List<Shoes> parseFileToObjList(File file) {
         List<Shoes> shoesList = new ArrayList<>();
-        Scanner scanner = null;
-        try {
-            scanner = new Scanner(file);
+        try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNextLine()) {
                 Shoes shoes = new Shoes();
                 String[] arr = scanner.nextLine().split(";");
@@ -39,8 +37,8 @@ public class Task1 {
                         if (i == 2) {
                             shoes.setCount(Integer.parseInt(arr[i]));
                         }
-                        shoesList.add(shoes);
                     }
+                    shoesList.add(shoes);
                 }
             }
         } catch (IOException | NumberFormatException | ArrayIndexOutOfBoundsException e) {
@@ -52,25 +50,19 @@ public class Task1 {
                 out.println("You try get non exist element from array");
             }
         }
-        assert scanner != null;
-        scanner.close();
         return shoesList;
     }
 
     // Parsing from List and write to file
     public static void writeAbsenteesShoesToNewFile(List<Shoes> shoesList) {
         FILE_OUT.getParentFile().mkdirs();
-        PrintWriter pw = null;
-        try {
-            pw = new PrintWriter(FILE_OUT);
+        try (PrintWriter pw = new PrintWriter(FILE_OUT)) {
+            for (Shoes shoe : shoesList) {
+                pw.println(shoe.getName() + ";" + shoe.getSize() + ";" + shoe.getCount() + ";");
+            }
         } catch (FileNotFoundException e) {
             out.println("File for write wasn't create");
         }
-
-        for (Shoes shoe : shoesList) {
-            pw.println(shoe.getName() + ";" + shoe.getSize() + ";" + shoe.getCount() + ";");
-        }
-        pw.close();
     }
 
     public static void main(String[] args) {

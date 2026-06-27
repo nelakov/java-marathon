@@ -55,11 +55,11 @@ public class Plane {
         StringBuilder output = beatifyOutput
                 .append("Manufacturer: " + airplane.manufacturer)
                 .append(", ")
-                .append("Year realise: " + year)
+                .append("Year realise: " + airplane.year)
                 .append(", ")
-                .append("Length: " + length)
+                .append("Length: " + airplane.length)
                 .append(", ")
-                .append("Count of fuel: " + weight);
+                .append("Weight: " + airplane.weight);
         return output;
     }
 

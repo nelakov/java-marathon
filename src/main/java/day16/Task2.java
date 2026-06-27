@@ -9,7 +9,7 @@ public class Task2 {
         try {
             methods
                     .writeRandomNumberToFile()
-                    .readAndСalculateArithmeticMean()
+                    .readAndCalculateArithmeticMean()
                     .readSumAndPrintFromFile();
         } catch (FileNotFoundException e) {
             throw new RuntimeException("File was not found");

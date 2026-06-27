@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Task1 {
     public static void main(String[] args) {
-        File file = new File("C:\\Users\\nelak\\Repositories\\IdeaProjects\\JavaMarathon2021\\JavaMarathon2021\\files\\test");
+        File file = new File("files/test");
 
         try {
             Scanner scanner = new Scanner(file);

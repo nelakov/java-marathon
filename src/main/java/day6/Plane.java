@@ -40,7 +40,7 @@ public class Plane {
     }
 
     public void info() {
-        System.out.println("Manufacturer: " + "manufacturer" + "\n" +
+        System.out.println("Manufacturer: " + manufacturer + "\n" +
              "Year realise: " + year + "\n" + 
              "Length: " + length + "\n" + "Weight: " + weight + "\n" + 
              "Count of fuel: " + fuel

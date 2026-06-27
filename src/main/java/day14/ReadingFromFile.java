@@ -21,7 +21,7 @@ public class ReadingFromFile {
         }
         String line = scanner.nextLine();
         String[] numbersString = line.split(" ");
-        int[] numbers = new int[3];
+        int[] numbers = new int[numbersString.length];
         int counter = 0;
 
         for (String number: numbersString) {

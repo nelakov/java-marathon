@@ -51,12 +51,16 @@ public class Task2 {
         int carX;
         int carY;
         int count = 0;
+        int minX = Math.min(x1, x2);
+        int maxX = Math.max(x1, x2);
+        int minY = Math.min(y1, y2);
+        int maxY = Math.max(y1, y2);
         out.println("_-_-_-_-_-_-_-_- Car ID's into square_-_-_-_-_-_-_-_-");
         for (Map.Entry<Integer, Point> cars : a.entrySet()) {
             carPoints = cars.getValue();
             carX = carPoints.getX();
             carY = carPoints.getY();
-            if ((carX < x1 && carX > x2) && (carY > y1 && carY < y2)) {
+            if (carX >= minX && carX <= maxX && carY >= minY && carY <= maxY) {
                 out.println("ID: " + "[" + cars.getKey() + "]");
             }
             count++;
